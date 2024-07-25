@@ -1,0 +1,50 @@
+{
+    "OrganizationTitle":  "Karmaknit",
+    "Systems": [
+        {
+            "GUID": "97EEBCE8-E443-4DAA-BE0E-99DA493981D5",
+            "Name": "KMRD Bitbucket",
+            "ServerURL": "https://api.bitbucket.org",
+            "Tenant": "karlmayertextile",
+            "SystemType": 0,
+            "ObservedAutomations": [
+                {
+                    "RepositoryName": "kk.infoscreen",
+                    "RepositoryBranch": "main",
+                    "Alias": "KK.Infoscreen"
+                },
+                {
+                    "RepositoryName": "bib4karl-dev",
+                    "RepositoryBranch": "main",
+                    "Alias": "Bib4KARL-dev"
+                },
+                {
+                    "RepositoryName": "bitbucketpipelineobserver",
+                    "RepositoryBranch": "master",
+                    "Alias": "BitbucketPipelineObserver"
+                }
+            ]
+
+        },
+        {
+            "GUID": "36365013-02FA-414F-9050-31B4D3E651EB",
+            "Name": "Github oalt",
+            "ServerURL": "https://api.github.com",
+            "Tenant": "oalt",
+            "SystemType": 1,
+            "ObservedAutomations": [
+                {
+                    "RepositoryName": "MDD4All.DevOpsObserver-dev",
+                    "RepositoryBranch": "main",
+                    "Alias": "MDD4All.DevOpsObserver-dev"
+                },
+                {
+                    "RepositoryName": "SpecIFicator-dev",
+                    "RepositoryBranch": "main",
+                    "Alias": "SpecIFicator-dev"
+                }
+            ]
+
+        }
+    ]
+}

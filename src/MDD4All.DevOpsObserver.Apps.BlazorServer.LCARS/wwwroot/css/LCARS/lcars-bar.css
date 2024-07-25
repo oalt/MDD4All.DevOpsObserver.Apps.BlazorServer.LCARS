@@ -1,0 +1,116 @@
+﻿@charset "utf-8";
+
+/*
+	CSS Document Mod. 2023 Mar 13
+	LCARS Bar
+	By Jim Robertus www.thelcars.com
+*/
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.wrap-2 {
+    margin: auto;
+    padding: 25px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1390px;
+}
+
+.bar {
+    background: #ffaa90;
+    border-right: 40px solid #dbf;
+    border-left: 40px solid #d44;
+    border-radius: 20px;
+    height: 40px;
+}
+
+.lower-caps {
+    border-right: 40px solid #d44;
+    border-left: 40px solid #c8f;
+}
+
+.bar-inside {
+    background-color: #ffaa90;
+    border-right: 15px solid #000;
+    border-left: 15px solid #000;
+    height: 40px;
+}
+
+.bar-text {
+    background: #000;
+    font-size: 44px;
+    float: left;
+    height: 45px;
+    line-height: 44px;
+    padding: 0 15px 0 0;
+    margin-top: -5px;
+}
+
+.bar-content {
+    padding: 1rem 55px;
+}
+
+@media (max-width: 890px) {
+
+    .data-cascade {
+        width: 200px;
+    }
+}
+
+@media (max-width: 840px) {
+    .wrap-2 {
+        margin-top: 0;
+        padding: 10px 1rem;
+    }
+}
+
+@media (max-width: 760px) {
+
+    .data-cascade {
+        display: none;
+    }
+}
+
+@media (min-width: 760px) {
+
+    .notav {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .bar-content {
+        padding: 15px 10px;
+    }
+
+    .bar {
+        border-right: 26px solid #dbf;
+        border-left: 26px solid #d44;
+        border-radius: 13px;
+        height: 26px;
+    }
+
+    .lower-caps {
+        border-right: 26px solid #d44;
+        border-left: 26px solid #c8f;
+    }
+
+    .bar-inside {
+        border-right: 5px solid #000;
+        border-left: 5px solid #000;
+        height: 26px;
+    }
+
+    .bar-text {
+        font-size: 24px;
+        transform: scale(1, 1.2);
+        height: 26px;
+        line-height: 1;
+        margin-top: -1px;
+        padding: 0 5px 0 0;
+    }
+}
