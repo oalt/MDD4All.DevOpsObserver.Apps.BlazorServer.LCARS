@@ -1,11 +1,7 @@
-using MDD4All.DevOpsObserver.Apps.BlazorServer.LCARS.Data;
 using MDD4All.DevOpsObserver.DataModels;
 using MDD4All.DevOpsObserver.StatusLightControl.Contracts;
 using MDD4All.DevOpsObserver.StatusLightControl.Hue;
 using MDD4All.DevOpsObserver.ViewModels;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace MDD4All.DevOpsObserver.Apps.BlazorServer.LCARS
@@ -28,9 +24,25 @@ namespace MDD4All.DevOpsObserver.Apps.BlazorServer.LCARS
             string ip = builder.Configuration["HueStatusLight:IP"];
             string key = builder.Configuration["HueStatusLight:ApiKey"];
             string bulbID = builder.Configuration["HueStatusLight:BulbID"];
+            
+            bool noHardware = false;
+            string noHardwareString = builder.Configuration["HueStatusLight:NoHardwareConnected"];
 
-            HueStatusLightController hueStatusLightController = new HueStatusLightController(ip, key, bulbID);
-            builder.Services.AddSingleton<IStatusLightController>(hueStatusLightController);
+            if(!string.IsNullOrEmpty(noHardwareString))
+            {
+                bool.TryParse(noHardwareString, out noHardware);
+            }
+
+            if(noHardware)
+            {
+                MockupHueLightController mockupHueLightController = new MockupHueLightController();
+                builder.Services.AddSingleton<IStatusLightController>(mockupHueLightController);
+            }
+            else
+            {
+                HueStatusLightController hueStatusLightController = new HueStatusLightController(ip, key, bulbID);
+                builder.Services.AddSingleton<IStatusLightController>(hueStatusLightController);
+            }
 
             string configJSON = File.ReadAllText("DevOpsConfiguration.json");
 
